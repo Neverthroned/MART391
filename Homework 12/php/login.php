@@ -6,8 +6,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$username = htmlspecialchars($_GET["username"]);
-$pwd = htmlspecialchars($_GET["pwd"]);
+$username = isset($_GET["username"]) ? htmlspecialchars($_GET["username"]) : "";
+$pwd = isset($_GET["pwd"]) ? htmlspecialchars($_GET["pwd"]) : "";
 
 $playerInfo = "";
 $sql = "CALL mygame.spCheckLogin('". $username . "','" . $pwd . "');";
